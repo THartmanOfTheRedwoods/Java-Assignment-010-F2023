@@ -13,20 +13,24 @@
 class Student{
     private String name;
     private int rollNo;
-   
+   // This is the constructor with parameters s and r
     Student(String s, int r)
     {
+      // This is where the instance variables name and rollNo get set to the values of s and r
    	    name = s;
    	    rollNo = r;
     }
-   
+  // This is the instance method methodForDisplay
     void methodForDisplay()
     {
+      // This is where the name and rollNo of the object are printed on the console
         System.out.println(name+"'s Roll No: "+rollNo);
     }
-
+  // This is the main method
     public static void main(String[] args) {
+      // This is where a Student object obj1 gets created, with values "Rambo" and 21 passed to the constructor
         Student obj1=new Student("Rambo",21);
+      // This is where the instance method methodForDisplay is invoked on the object obj1
         obj1.methodForDisplay();
     }
 }
