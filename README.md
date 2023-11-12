@@ -10,24 +10,29 @@
   6. All the instance methods for the class **Student**
 
 ```java
+//Below is the class name
 class Student{
+    //Below are the instance variables name, type String and rollNo, type int.
     private String name;
     private int rollNo;
    
+    //This is the constructor of the "Student", with parameters String s and int r.
     Student(String s, int r)
     {
    	    name = s;
    	    rollNo = r;
     }
    
+    //This is where the instance method "methodForDisplay" is in the class "Student".
     void methodForDisplay()
     {
         System.out.println(name+"'s Roll No: "+rollNo);
     }
 
     public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
-        obj1.methodForDisplay();
+        //This is where the Student object "obj1" is created. 
+        Student obj1=new Student("Rambo",21); //In this line the instance variables name and rollNo are assigned to Rambo and 21
+        obj1.methodForDisplay();//This line accesses the Student object "obj1" and calls "methodForDisplay()"
     }
 }
 ```
@@ -36,6 +41,9 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
+
+* The difference between static and public methods is that one can be accessed from within other methods without having to create an object while the other requires a new object be made in order to access certain methods. In the first part of this readme, it was required to make a new object from the Student constructor in order to call the method methodForDisplay. If methodForDisplay was public or static, then the method could have been called in main by simply typing "methodForDisplay();".
+* I think using objects tends to make more sense than making methods public so that way the values saved to certain objects from methods can belong to those objects and not be accessed from a public, static context.
 
 ## Part 3 - Dogs
 
