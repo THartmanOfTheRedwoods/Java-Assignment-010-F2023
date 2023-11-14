@@ -3,15 +3,16 @@ public class Dog {
     private String name;
     private String breed;
     private int age;
-    private int sleep;
 
 //    You should have a constructor that sets the initial state of the data members via passed parameters.
-//    Think about what data-types the fields and parameters will need!!!
-    public Dog () {
+    public Dog (String name, String breed, int age, int sleep) {
+
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
         return;
     }
 
-//    You should have 4 instance methods for eat, run, sleep, and name
     public void eat() {
         return;
     }
@@ -25,10 +26,14 @@ public class Dog {
         return;
     }
 
-
-
     //    You should have a main method that creates the 3 Dog objects in the diagram.
     public static void main(String[] args) {
+
+        Dog dog1;
+
+        Dog dog2;
+
+        Dog dog3;
         return;
     }
 //    Make at least 2 of your methods functional (i.e. perform some action)!!!
