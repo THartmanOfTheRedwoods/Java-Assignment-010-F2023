@@ -1,7 +1,5 @@
 public class Dog {
 
-//    You should have private instance variables/fields for all the data members.
-
     private String name;
     private String breed;
     private int age;
@@ -9,6 +7,9 @@ public class Dog {
 
 //    You should have a constructor that sets the initial state of the data members via passed parameters.
 //    Think about what data-types the fields and parameters will need!!!
+    public Dog () {
+        return;
+    }
 
 //    You should have 4 instance methods for eat, run, sleep, and name
     public void eat() {
