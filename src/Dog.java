@@ -26,11 +26,27 @@ public class Dog {
     }
 
     public static int getAge() {
-        return 5;
+
+        Scanner s = new Scanner(System.in);
+        int age;
+
+        do {
+            System.out.print("Enter your dog's age: ");
+            while (!s.hasNextInt()) {
+                System.out.println("Invalid input. Enter a valid integer.");
+                s.next();
+            }
+            age = s.nextInt();
+        } while (age <= 0);
+
+        return age;
+//        return 5;
     }
 
     public static String getBreed(){
-        return "Husky/GSD";
+        Scanner s = new Scanner((System.in));
+        System.out.print("Enter your dog's breed: ");
+        return s.nextLine();
     }
 
     public static String[] getColor() {
