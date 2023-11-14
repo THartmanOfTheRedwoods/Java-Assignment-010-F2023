@@ -20,7 +20,9 @@ public class Dog {
     }
 
     public static String getName() {
-        return "Atari";
+        System.out.println("What this dog's name?");
+        Scanner s = new Scanner(System.in);
+        return s.nextLine();
     }
 
     public static int getAge() {
