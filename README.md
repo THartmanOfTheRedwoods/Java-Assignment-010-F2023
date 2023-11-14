@@ -42,6 +42,29 @@ class Student{                  //CLASS NAME
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
 
+Okie dokie, public and static. It's not really "Public Vs Static", rather "Public? Static?" Method signatures, when
+restricting the access modifiers to use of only 'public' and 'static' tokens, can produce four possible method
+signatures:
+
+1. Method signature 1:`public static`
+
+- The method can be accessed from anywhere in the code, and belongs to the class
+
+
+2. Method signature 2: `public`
+- This method can be accessed from anywhere in the code, but only by an instance of the class
+
+
+3. Method signature 3: `static`
+
+- This method can only be accessed within the same package, and belongs to the class
+
+
+4. Method signature 4: `[default]`
+
+- This method can only be accessed from within the same package, and only through instances of the class
+
+
 ## Part 3 - Dogs
 
 * View the image below, and from the image, construct a Java file **Dog** that mirrors the diagrammed class and the 3 dog objects.
