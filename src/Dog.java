@@ -52,7 +52,7 @@ public class Dog {
         Scanner s = new Scanner(System.in);
         int age;
         do {
-            System.out.print(divider + "Enter your dog's age: ");
+            System.out.println(divider + "Enter your dog's age: ");
             while (!s.hasNextInt()) {
                 System.out.println("Invalid input. Enter a valid integer.");
                 s.next();
@@ -82,7 +82,7 @@ public class Dog {
         List<String> color = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         String input;
-        System.out.println("Enter the colors of the dog (type 'F' to finish):");
+        System.out.println(divider + "Enter the colors of the dog (type 'F' to finish):");
         do {
             input = scanner.nextLine();
             if (!input.equalsIgnoreCase("F")) {
@@ -200,15 +200,14 @@ public class Dog {
     }
 
     public static void selectAction(Dog dog){
-        boolean repeatProgram = true;
         boolean invalidInput;
         do {
             invalidInput = false;
             switch (printDogActions(dog.name)) {
                 case 1 -> System.out.println(divider + name(dog));
-                case 2 -> System.out.println(run(dog));
-                case 3 -> System.out.println(eat(dog));
-                case 4 -> System.out.println(sleep(dog));
+                case 2 -> System.out.println(divider + run(dog));
+                case 3 -> System.out.println(divider + eat(dog));
+                case 4 -> System.out.println(divider + sleep(dog));
                 default -> {
                     System.out.println(errMessage);
                     invalidInput = true;
@@ -220,7 +219,6 @@ public class Dog {
 
     public static Dog selectDog(Dog[] dogs){
         Dog dog = null;
-        boolean repeatProgram = true;
             boolean invalidInput;
             do {
                 invalidInput = false;
