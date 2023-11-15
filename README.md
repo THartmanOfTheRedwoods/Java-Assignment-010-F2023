@@ -10,24 +10,29 @@
   6. All the instance methods for the class **Student**
 
 ```java
-class Student{
-    private String name;
-    private int rollNo;
+
+class Student{                  //CLASS NAME
+    private String name;        //INSTANCE VARIABLE
+    private int rollNo;         //INSTANCE VARIABLE   
    
-    Student(String s, int r)
+    Student(String s, int r)    //CONSTRUCTOR
+                                //PARAMETERS type String and int
+            
     {
-   	    name = s;
-   	    rollNo = r;
+   	    name = s;               //INSTANCE VARIABLE assigned to String parameter
+   	    rollNo = r;             //INSTANCE VARIABLE assigned to int parameter
     }
    
-    void methodForDisplay()
+    void methodForDisplay()     //INSTANCE METHOD INITIALIZED
     {
         System.out.println(name+"'s Roll No: "+rollNo);
     }
 
     public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
-        obj1.methodForDisplay();
+        Student obj1=new Student("Rambo",21);       //STUDENT OBJECT created, instance variable values passed
+                                                    //as parameters
+      
+        obj1.methodForDisplay();                    //INSTANCE METHOD CALLED
     }
 }
 ```
@@ -36,6 +41,29 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
+
+Okie dokie, public and static. It's not really "Public Vs Static", rather "Public? Static?" Method signatures, when
+restricting the access modifiers to use of only 'public' and 'static' tokens, can produce four possible method
+signatures:
+
+1. Method signature 1:`public static`
+
+- The method can be accessed from anywhere in the code, and belongs to the class
+
+
+2. Method signature 2: `public`
+- This method can be accessed from anywhere in the code, but only by an instance of the class
+
+
+3. Method signature 3: `static`
+
+- This method can only be accessed within the same package, and belongs to the class
+
+
+4. Method signature 4: `[default]`
+
+- This method can only be accessed from within the same package, and only through instances of the class
+
 
 ## Part 3 - Dogs
 
