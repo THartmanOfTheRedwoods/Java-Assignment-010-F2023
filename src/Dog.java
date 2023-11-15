@@ -20,18 +20,18 @@ public class Dog {
         this.breed = breed;
         this.color = color;
 
-        System.out.printf(printTemplate, name, age, breed, Array.getLength(color));          //scaffold
+        System.out.printf(printTemplate, name, age, breed, getColorString());          //scaffold
 
         return;
     }
 
-    public static String getName() {
+    private static String getName() {
         System.out.println("What this dog's name?");
         Scanner s = new Scanner(System.in);
         return s.nextLine();
     }
 
-    public static int getAge() {
+    private static int getAge() {
 
         Scanner s = new Scanner(System.in);
         int age;
@@ -72,6 +72,12 @@ public class Dog {
         return color.toArray(new String[0]);
     }
 
+    private static String getColorString() {
+        StringBuilder colorstring = new StringBuilder();
+
+        return colorstring.toString();
+    }
+
     public void eat() {
         return;
     }
@@ -89,7 +95,6 @@ public class Dog {
     public static void main(String[] args) {
 
         Dog dog1 = new Dog(getName(), getAge(), getBreed(), getColor());
-//        System.out.printf(printTemplate, dog1.name, dog1.age, dog1.breed, dog1.color);          //scaffold
 
         Dog dog2 = new Dog(getName(), getAge(), getBreed(), getColor());
 
