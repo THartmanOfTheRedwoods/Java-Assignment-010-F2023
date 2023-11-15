@@ -80,7 +80,7 @@ public class Dog {
         StringBuilder colorString = new StringBuilder();
         for (int i = 0; i < color.length; i++) {
             colorString.append(color[i]);
-            if (i < color.length-2) {
+            if (i < color.length - 2) {
                 colorString.append(", ");
             } else if (i == color.length - 2) {
                 colorString.append(", and ");
@@ -144,6 +144,7 @@ public class Dog {
     private static void run(Dog dog) {
         return;
     }
+
     private static String eat(Dog dog) {
         return blurb(getRandomScript(filepath[2]), dog);
     }
@@ -151,7 +152,6 @@ public class Dog {
     public void sleep(Dog dog) {
         return;
     }
-
 
     public static void main(String[] args) {
 
