@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Dog {
@@ -17,7 +20,7 @@ public class Dog {
         this.breed = breed;
         this.color = color;
 
-        System.out.printf(printTemplate, name, age, breed, color);          //scaffold
+        System.out.printf(printTemplate, name, age, breed, Array.getLength(color));          //scaffold
 
         return;
     }
@@ -53,8 +56,20 @@ public class Dog {
     }
 
     public static String[] getColor() {
-        String[] color = {"black", "brown", "white"};
-        return color;
+        List<String> color = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        String input;
+
+        System.out.println("Enter the colors of the dog (type 'F' to finish):");
+        do {
+            input = scanner.nextLine();
+            if (!input.equalsIgnoreCase("F")) {
+                color.add(input);
+            }
+        } while (!input.equalsIgnoreCase("F"));
+
+
+        return color.toArray(new String[0]);
     }
 
     public void eat() {
