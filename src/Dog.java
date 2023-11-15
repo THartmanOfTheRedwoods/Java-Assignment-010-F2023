@@ -15,8 +15,23 @@ public class Dog {
     private static final String[] filepath = {
             "Scripts/introduction Scripts.txt",
             "Scripts/name Scripts.txt",
+            "Scripts/run Scripts.txt",
             "Scripts/eat Scripts.txt",
             "Scripts/sleep Scripts.txt"
+    };
+
+    private static final String[] dogActions = {
+            "Call name",
+            "Run",
+            "Eat",
+            "Sleep"
+    };
+
+    private static final String errMessage = "Invalid Selection";
+    private static final String[] again = {
+            "Would you like to interact with another dog?",
+            "Choose Another dog",
+            "Go Home"
     };
 
     public Dog (String name, int age, String size, String breed, String[] color) {
@@ -37,7 +52,7 @@ public class Dog {
         Scanner s = new Scanner(System.in);
         int age;
         do {
-            System.out.print("Enter your dog's age: ");
+            System.out.print(divider + "Enter your dog's age: ");
             while (!s.hasNextInt()) {
                 System.out.println("Invalid input. Enter a valid integer.");
                 s.next();
@@ -49,7 +64,7 @@ public class Dog {
 
     public static String setSize() {
         String[] arraySize= {"Small", "Medium", "Large"};
-        System.out.println("Enter size");
+        System.out.println(divider + "Enter size");
         Scanner s = new Scanner(System.in);
         for (int i = 0; i < arraySize.length; i++){
             System.out.printf("%d: \"%s\"%n", i + 1, arraySize[i]);
@@ -59,7 +74,7 @@ public class Dog {
 
     public static String setBreed(){
         Scanner s = new Scanner((System.in));
-        System.out.print("Enter your dog's breed: ");
+        System.out.print(divider + "Enter your dog's breed: ");
         return s.nextLine();
     }
 
@@ -100,8 +115,6 @@ public class Dog {
             Random random = new Random();
             int randomIndex = random.nextInt(lines.size());
             randomScript = lines.get(randomIndex);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -111,27 +124,17 @@ public class Dog {
     public static String blurb(String script, Dog dog) {
         Pattern pattern = Pattern.compile("(NAME|BREED|SIZE|COLOR|AGE)");
         Matcher matcher = pattern.matcher(script);
-        StringBuffer output = new StringBuffer();
+        StringBuilder output = new StringBuilder();
         while (matcher.find()) {
             String stringMatch = matcher.group();
             switch (stringMatch) {
-                case "NAME":
-                    matcher.appendReplacement(output, dog.name);
-                    break;
-                case "BREED":
-                    matcher.appendReplacement(output, dog.breed.toLowerCase());
-                    break;
-                case "SIZE":
-                    matcher.appendReplacement(output, dog.size.toLowerCase());
-                    break;
-                case "COLOR":
-                    matcher.appendReplacement(output, getColorString(dog.color));
-                    break;
-                case "AGE":
-                    matcher.appendReplacement(output, String.valueOf(dog.age));
-                    break;
-                default:
-                    break;
+                case "NAME" -> matcher.appendReplacement(output, dog.name);
+                case "BREED" -> matcher.appendReplacement(output, dog.breed.toLowerCase());
+                case "SIZE" -> matcher.appendReplacement(output, dog.size.toLowerCase());
+                case "COLOR" -> matcher.appendReplacement(output, getColorString(dog.color));
+                case "AGE" -> matcher.appendReplacement(output, String.valueOf(dog.age));
+                default -> {
+                }
             }
         }
         matcher.appendTail(output);
@@ -142,27 +145,31 @@ public class Dog {
         for (Dog dog : dogs) {
             System.out.println(blurb(getRandomScript(filepath[0]), dog));
         }
-        System.out.println("\nI see you have brought a new club member...");
+        System.out.println("\nI see you have brought a new club member...\n");
+        System.out.print(divider);
     }
 
-    private static void introduction(Dog dog) {
-        System.out.println(blurb(getRandomScript(filepath[0]), dog));
+    private static String introduction(Dog dog) {
+        return blurb(getRandomScript(filepath[0]), dog);
     }
 
-    private static void name() {
+    private static String name(Dog dog) {
+        return blurb(getRandomScript(filepath[1]), dog);
     }
 
-    private static void run(Dog dog) {
-    }
-
-    private static String eat(Dog dog) {
+    private static String run(Dog dog) {
         return blurb(getRandomScript(filepath[2]), dog);
     }
 
-    public void sleep(Dog dog) {
+    private static String eat(Dog dog) {
+        return blurb(getRandomScript(filepath[3]), dog);
     }
 
-    public static void openingScript() {
+    private static String sleep(Dog dog) {
+        return blurb(getRandomScript(filepath[4]), dog);
+    }
+
+    private static void openingScript() {
         System.out.print(divider + divider);
         String openingScript1 = String.format("%s%n", "Welcome to \"Bark-icus\"");
         String openingScript2 = String.format("%40s%n", "The Premier Dog Club");
@@ -172,41 +179,101 @@ public class Dog {
         System.out.println(divider);
     }
 
-    public static void main(String[] args) {
-        openingScript();
+    public static int printDogNames (Dog[] dogs) {
+        Scanner s = new Scanner(System.in);
+        System.out.println(divider + "Select a dog to interact with?");
 
-        List<Dog> dogs = new ArrayList<>();
-
-        dogs.add(0, new Dog("Bully", 5, "large", "Bulldog", new String[]{"light gray"}));
-        dogs.add(1, new Dog("Regal", 6, "large", "Beagle", new String[]{"orange"}));
-        dogs.add(2, new Dog("Herman Herbert", 6, "large", "German Shepherd", new String[]{"white", "orange"}));
-
-        introduction(dogs.toArray(new Dog[0]));
-
-        dogs.add(3, new Dog(setName(), setAge(), setSize(), setBreed(), setColor()));
-
-        introduction(dogs.get(3));
-
-
-//        dogs[3].launchTheSecretPawsPlayground();
-
-
-
-/*        blurb(getRandomScript("Scripts/name Scripts.txt"), dog1);
-        blurb(getRandomScript("Scripts/name Scripts.txt"), dog2);
-        blurb(getRandomScript("Scripts/name Scripts.txt"), dog3);
-
-        blurb(getRandomScript("Scripts/eat Scripts.txt"), dog1);
-        blurb(getRandomScript("Scripts/eat Scripts.txt"), dog2);
-        blurb(getRandomScript("Scripts/eat Scripts.txt"), dog3);
-
-        blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog1);
-        blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog2);
-        blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog3);*/
-
+        for (int i = 0; i < dogs.length; i++) {
+            System.out.printf("%d: %s%n", i + 1, dogs[i].name);
+        }
+        return Integer.parseInt(s.nextLine());
     }
 
-/*    private void launchTheSecretPawsPlayground(Dog dogA, Dog dogB) {
+    public static int printDogActions (String dogName) {
+        Scanner s = new Scanner(System.in);
+        System.out.printf(divider + "Select an action for %s%n", dogName);
 
-    }*/
+        for (int i = 0; i < dogActions.length; i++) {
+            System.out.printf("%d: %s%n", i + 1, dogActions[i]);
+        }
+        return Integer.parseInt(s.nextLine());
+    }
+
+    public static void selectAction(Dog dog){
+        boolean repeatProgram = true;
+        boolean invalidInput;
+        do {
+            invalidInput = false;
+            switch (printDogActions(dog.name)) {
+                case 1 -> System.out.println(divider + name(dog));
+                case 2 -> System.out.println(run(dog));
+                case 3 -> System.out.println(eat(dog));
+                case 4 -> System.out.println(sleep(dog));
+                default -> {
+                    System.out.println(errMessage);
+                    invalidInput = true;
+                }
+            }
+        } while (invalidInput);
+        System.out.println(divider);
+    }
+
+    public static Dog selectDog(Dog[] dogs){
+        Dog dog = null;
+        boolean repeatProgram = true;
+            boolean invalidInput;
+            do {
+                invalidInput = false;
+                switch (printDogNames(dogs)) {
+                    case 1 -> dog = dogs[0];
+                    case 2 -> dog = dogs[1];
+                    case 3 -> dog = dogs[2];
+                    case 4 -> dog = dogs[3];
+                    default -> {
+                        System.out.println(errMessage);
+                        invalidInput = true;
+                    }
+                }
+            } while (invalidInput);
+        return dog;
+    }
+
+    public static boolean again(){
+        Scanner s = new Scanner(System.in);
+        boolean repeatProgram = true;
+        boolean invalidInput;
+        int userAgain;
+        do {
+            invalidInput = false;
+            System.out.println(again[0]);
+            for (int i = 1; i < again.length; i++) {
+                System.out.printf("%d: %s%n", i, again[i]);
+            }
+            userAgain = Integer.parseInt(s.nextLine());
+            switch (userAgain) {
+                case 1 -> {}
+                case 2 -> repeatProgram = false;
+                default -> {
+                    System.out.println(errMessage);
+                    invalidInput = true;
+                }
+            }
+        } while (invalidInput);
+        return repeatProgram;
+    }
+
+    public static void main(String[] args) {
+        openingScript();
+        List<Dog> dogs = new ArrayList<>();
+        dogs.add(0, new Dog("Bully", 5, "large", "Bulldog", new String[]{"light gray"}));
+        dogs.add(1, new Dog("Regal", 6, "large", "Beagle", new String[]{"orange"}));
+        dogs.add(2, new Dog("Herman Eberhardt", 6, "large", "German Shepherd", new String[]{"white", "orange"}));
+        introduction(dogs.toArray(new Dog[0]));
+        dogs.add(3, new Dog(setName(), setAge(), setSize(), setBreed(), setColor()));
+        introduction(dogs.get(3));
+        do {
+            selectAction(selectDog(dogs.toArray(new Dog[0])));
+        } while(again());
+
+    }
 }
