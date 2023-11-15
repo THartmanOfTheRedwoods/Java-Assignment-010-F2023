@@ -28,13 +28,13 @@ public class Dog {
         System.out.printf(printTemplate, name, age, breed, getColorString(color));          //scaffold
     }
 
-    private static String getName() {
+    private static String setName() {
         System.out.println("What this dog's name?");
         Scanner s = new Scanner(System.in);
         return s.nextLine();
     }
 
-    private static int getAge() {
+    private static int setAge() {
         Scanner s = new Scanner(System.in);
         int age;
         do {
@@ -48,7 +48,7 @@ public class Dog {
         return age;
     }
 
-    public static String getSize() {
+    public static String setSize() {
         String[] arraySize= {"Small", "Medium", "Large"};
         System.out.println("Enter size");
         Scanner s = new Scanner(System.in);
@@ -58,13 +58,13 @@ public class Dog {
         return arraySize[Integer.parseInt(s.nextLine()) - 1];          //modify to checksum the input
     }
 
-    public static String getBreed(){
+    public static String setBreed(){
         Scanner s = new Scanner((System.in));
         System.out.print("Enter your dog's breed: ");
         return s.nextLine();
     }
 
-    public static String[] getColor() {
+    public static String[] setColor() {
         List<String> color = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         String input;
@@ -89,6 +89,34 @@ public class Dog {
             }
         }
         return colorString.toString();
+    }
+    public static String getRandomLine() {
+
+
+
+
+        /*        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(f))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (numLines == 0) {
+                    System.out.printf("%s%s", divider, divider);
+                }
+                if (line != null) {
+                    if (skipWhiteSpace) {
+                        System.out.println(removeSpaces(line));
+                    } else {
+                        System.out.println(line);
+                    }
+                }
+                numWords += countWords(line);
+                numLines++;
+                numChars += countChars(line, skipWhiteSpace);
+                }
+            System.out.printf("%s%s", divider, divider);
+        }*/
+
+
+        return "";
     }
 
     public static void blurb(String temp, Dog dog) {
@@ -138,11 +166,11 @@ public class Dog {
     //    You should have a main method that creates the 3 Dog objects in the diagram.
     public static void main(String[] args) {
 
-        Dog dog1 = new Dog(getName(), getAge(), getSize(), getBreed(), getColor());
+        Dog dog1 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
 
-//        Dog dog2 = new Dog(getName(), getAge(), getSize(), getBreed(), getColor());
+//        Dog dog2 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
 
-//        Dog dog3 = new Dog(getName(), getAge(), getSize(), getBreed(), getColor());
+//        Dog dog3 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
 
         blurb(temp, dog1);
 
