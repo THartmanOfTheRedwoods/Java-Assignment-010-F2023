@@ -11,12 +11,13 @@ public class Dog {
     private final String size;
     private final String[] color;
     private final int age;
+    private static final String divider = "****************************************\n";
     private static final String[] filepath = {
             "Scripts/introduction Scripts.txt",
             "Scripts/name Scripts.txt",
             "Scripts/eat Scripts.txt",
             "Scripts/sleep Scripts.txt"
-    }
+    };
 
     public Dog (String name, int age, String size, String breed, String[] color) {
         this.name = name;
@@ -137,12 +138,21 @@ public class Dog {
         return output.toString();
     }
 
+    private static void introduction(Dog[] dogs) {
+        for (Dog dog : dogs) {
+            System.out.println(blurb(getRandomScript(filepath[0]), dog));
+        }
+        System.out.println("\nI see you have brought a new club member...");
+    }
+
+    private static void introduction(Dog dog) {
+        System.out.println(blurb(getRandomScript(filepath[0]), dog));
+    }
+
     private static void name() {
-        return;
     }
 
     private static void run(Dog dog) {
-        return;
     }
 
     private static String eat(Dog dog) {
@@ -150,19 +160,39 @@ public class Dog {
     }
 
     public void sleep(Dog dog) {
-        return;
+    }
+
+    public static void openingScript() {
+        System.out.print(divider + divider);
+        String openingScript1 = String.format("%s%n", "Welcome to \"Bark-icus\"");
+        String openingScript2 = String.format("%40s%n", "The Premier Dog Club");
+        System.out.printf("%s%n%s", openingScript1, openingScript2);
+        System.out.print(divider + divider);
+        System.out.print("First off,\n        please meet Top Dogs\n                          of \"Bark-icus\"\n");
+        System.out.println(divider);
     }
 
     public static void main(String[] args) {
+        openingScript();
 
-        Dog dog1 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
-        Dog dog2 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
-        Dog dog3 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
+        List<Dog> dogs = new ArrayList<>();
 
-        eat(dog1);
+        dogs.add(0, new Dog("Bully", 5, "large", "Bulldog", new String[]{"light gray"}));
+        dogs.add(1, new Dog("Regal", 6, "large", "Beagle", new String[]{"orange"}));
+        dogs.add(2, new Dog("Herman Herbert", 6, "large", "German Shepherd", new String[]{"white", "orange"}));
+
+        introduction(dogs.toArray(new Dog[0]));
+
+        dogs.add(3, new Dog(setName(), setAge(), setSize(), setBreed(), setColor()));
+
+        introduction(dogs.get(3));
 
 
-        blurb(getRandomScript("Scripts/name Scripts.txt"), dog1);
+//        dogs[3].launchTheSecretPawsPlayground();
+
+
+
+/*        blurb(getRandomScript("Scripts/name Scripts.txt"), dog1);
         blurb(getRandomScript("Scripts/name Scripts.txt"), dog2);
         blurb(getRandomScript("Scripts/name Scripts.txt"), dog3);
 
@@ -172,7 +202,11 @@ public class Dog {
 
         blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog1);
         blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog2);
-        blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog3);
+        blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog3);*/
 
     }
+
+/*    private void launchTheSecretPawsPlayground(Dog dogA, Dog dogB) {
+
+    }*/
 }
