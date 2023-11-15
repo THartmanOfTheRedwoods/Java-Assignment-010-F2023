@@ -20,7 +20,7 @@ public class Dog {
         this.breed = breed;
         this.color = color;
 
-        System.out.printf(printTemplate, name, age, breed, getColorString());          //scaffold
+        System.out.printf(printTemplate, name, age, breed, getColorString(color));          //scaffold
 
         return;
     }
@@ -67,15 +67,21 @@ public class Dog {
                 color.add(input);
             }
         } while (!input.equalsIgnoreCase("F"));
-
-
         return color.toArray(new String[0]);
     }
 
-    private static String getColorString() {
-        StringBuilder colorstring = new StringBuilder();
-
-        return colorstring.toString();
+    public static String getColorString(List<String> color) {
+        StringBuilder colorString = new StringBuilder();
+        int colorSize = color.size();
+        for (int i = 0; i < colorSize; i++) {
+            colorString.append(color.get(i));
+            if (i < colorSize) {
+                colorString.append(", ");
+            } else if (i == colorSize) {
+                colorString.append(", and ");
+            }
+        }
+        return colorString.toString();
     }
 
     public void eat() {
