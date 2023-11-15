@@ -70,14 +70,14 @@ public class Dog {
         return color.toArray(new String[0]);
     }
 
-    public static String getColorString(List<String> color) {
+    public static String getColorString(String[] color) {
         StringBuilder colorString = new StringBuilder();
-        int colorSize = color.size();
-        for (int i = 0; i < colorSize; i++) {
-            colorString.append(color.get(i));
-            if (i < colorSize) {
+        int colorSize = color.length;
+        for (int i = 0; i < color.length; i++) {
+            colorString.append(color[i]);
+            if (i < color.length-2) {
                 colorString.append(", ");
-            } else if (i == colorSize) {
+            } else if (i == color.length - 2) {
                 colorString.append(", and ");
             }
         }
