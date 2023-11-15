@@ -16,6 +16,9 @@ public class Dog {
         this.age = age;
         this.breed = breed;
         this.color = color;
+
+        System.out.printf(printTemplate, name, age, breed, color);          //scaffold
+
         return;
     }
 
@@ -71,11 +74,11 @@ public class Dog {
     public static void main(String[] args) {
 
         Dog dog1 = new Dog(getName(), getAge(), getBreed(), getColor());
-        System.out.printf(printTemplate, dog1.name, dog1.age, dog1.breed, dog1.color);          //scaffold
+//        System.out.printf(printTemplate, dog1.name, dog1.age, dog1.breed, dog1.color);          //scaffold
 
-        Dog dog2;
+        Dog dog2 = new Dog(getName(), getAge(), getBreed(), getColor());
 
-        Dog dog3;
+        Dog dog3 = new Dog(getName(), getAge(), getBreed(), getColor());
         return;
     }
 //    Make at least 2 of your methods functional (i.e. perform some action)!!!
