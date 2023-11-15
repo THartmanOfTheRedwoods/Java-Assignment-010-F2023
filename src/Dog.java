@@ -1,31 +1,29 @@
 //import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Dog {
 
-    private String name;
-    private String breed;
-    private String size;
-    private String[] color;
-    private int age;
-    private static String printTemplate =
-            "Name: %s%nAge: %d%nBreed: %s%nColor: %s%n";
-    private static String temp = "My service dog is a SIZE BREED named NAME. He is AGE year old, and has COLOR fur.";
-
+    private final String name;
+    private final String breed;
+    private final String size;
+    private final String[] color;
+    private final int age;
+    private static final String[] filepath = {
+            "Scripts/introduction Scripts.txt",
+            "Scripts/name Scripts.txt",
+            "Scripts/eat Scripts.txt",
+            "Scripts/sleep Scripts.txt"
+    }
 
     public Dog (String name, int age, String size, String breed, String[] color) {
-
         this.name = name;
         this.age = age;
         this.size = size;
         this.breed = breed;
         this.color = color;
-
-        System.out.printf(printTemplate, name, age, breed, getColorString(color));          //scaffold
     }
 
     private static String setName() {
@@ -52,7 +50,7 @@ public class Dog {
         String[] arraySize= {"Small", "Medium", "Large"};
         System.out.println("Enter size");
         Scanner s = new Scanner(System.in);
-        for (int i = 0; i < arraySize.length; i++){               //for loop copied from getNumbers method::Assignment009
+        for (int i = 0; i < arraySize.length; i++){
             System.out.printf("%d: \"%s\"%n", i + 1, arraySize[i]);
         }
         return arraySize[Integer.parseInt(s.nextLine()) - 1];          //modify to checksum the input
@@ -90,39 +88,28 @@ public class Dog {
         }
         return colorString.toString();
     }
-    public static String getRandomLine() {
-
-
-
-
-        /*        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(f))) {
+    public static String getRandomScript(String scriptPath) {
+        String randomScript;
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(scriptPath))) {
             String line;
+            List<String> lines = new ArrayList<>();
             while ((line = bufferedReader.readLine()) != null) {
-                if (numLines == 0) {
-                    System.out.printf("%s%s", divider, divider);
-                }
-                if (line != null) {
-                    if (skipWhiteSpace) {
-                        System.out.println(removeSpaces(line));
-                    } else {
-                        System.out.println(line);
-                    }
-                }
-                numWords += countWords(line);
-                numLines++;
-                numChars += countChars(line, skipWhiteSpace);
-                }
-            System.out.printf("%s%s", divider, divider);
-        }*/
-
-
-        return "";
+                lines.add(line);
+            }
+            Random random = new Random();
+            int randomIndex = random.nextInt(lines.size());
+            randomScript = lines.get(randomIndex);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return randomScript;
     }
 
-    public static void blurb(String temp, Dog dog) {
+    public static String blurb(String script, Dog dog) {
         Pattern pattern = Pattern.compile("(NAME|BREED|SIZE|COLOR|AGE)");
-        Matcher matcher = pattern.matcher(temp);
-
+        Matcher matcher = pattern.matcher(script);
         StringBuffer output = new StringBuffer();
         while (matcher.find()) {
             String stringMatch = matcher.group();
@@ -131,10 +118,10 @@ public class Dog {
                     matcher.appendReplacement(output, dog.name);
                     break;
                 case "BREED":
-                    matcher.appendReplacement(output, dog.breed);
+                    matcher.appendReplacement(output, dog.breed.toLowerCase());
                     break;
                 case "SIZE":
-                    matcher.appendReplacement(output, dog.size);
+                    matcher.appendReplacement(output, dog.size.toLowerCase());
                     break;
                 case "COLOR":
                     matcher.appendReplacement(output, getColorString(dog.color));
@@ -147,32 +134,45 @@ public class Dog {
             }
         }
         matcher.appendTail(output);
-        System.out.println(output);
+        return output.toString();
     }
 
-    public void eat() {
-        return;
-    }
-    public void run() {
-        return;
-    }
-    public void sleep() {
-        return;
-    }
-    public void name() {
+    private static void name() {
         return;
     }
 
-    //    You should have a main method that creates the 3 Dog objects in the diagram.
+    private static void run(Dog dog) {
+        return;
+    }
+    private static String eat(Dog dog) {
+        return blurb(getRandomScript(filepath[2]), dog);
+    }
+
+    public void sleep(Dog dog) {
+        return;
+    }
+
+
     public static void main(String[] args) {
 
         Dog dog1 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
+        Dog dog2 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
+        Dog dog3 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
 
-//        Dog dog2 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
+        eat(dog1);
 
-//        Dog dog3 = new Dog(setName(), setAge(), setSize(), setBreed(), setColor());
 
-        blurb(temp, dog1);
+        blurb(getRandomScript("Scripts/name Scripts.txt"), dog1);
+        blurb(getRandomScript("Scripts/name Scripts.txt"), dog2);
+        blurb(getRandomScript("Scripts/name Scripts.txt"), dog3);
+
+        blurb(getRandomScript("Scripts/eat Scripts.txt"), dog1);
+        blurb(getRandomScript("Scripts/eat Scripts.txt"), dog2);
+        blurb(getRandomScript("Scripts/eat Scripts.txt"), dog3);
+
+        blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog1);
+        blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog2);
+        blurb(getRandomScript("Scripts/sleep Scripts.txt"), dog3);
 
     }
 }
