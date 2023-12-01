@@ -2,31 +2,32 @@
 
 ## Part 1 - Analyze
 * Add Comments to the Code below and label the following:
-  1. Class name
-  2. All **instance variables/fields** and their data-types
-  3. The **Constructor** and the **Constructor Parameters**
-  4. Where a **Student** object gets created.
-  5. Where the **instance variables** value gets set and what its values are.
-  6. All the instance methods for the class **Student**
+  1. Class name  - check 
+  2. All **instance variables/fields** and their data-types - check 
+  3. The **Constructor** and the **Constructor Parameters** - check 
+  4. Where a **Student** object gets created. - check 
+  5. Where the **instance variables** value gets set and what its values are. - check 
+  6. All the instance methods for the class **Student** - check 
 
 ```java
-class Student{
-    private String name;
-    private int rollNo;
-   
+class Student{  // the class is student 
+    // Instance variables and their data types
+    private String name; // string type variable for students name
+    private int rollNo; // int type variable for student roll number
+   // Constructor and parameters 
     Student(String s, int r)
     {
-   	    name = s;
-   	    rollNo = r;
+   	    name = s; // constructors parameters s gets assigned to instance variable name
+   	    rollNo = r; // constructor parameter r gets assigned to instance variable rollNo
     }
-   
+   // instance method for displaying student info 
     void methodForDisplay()
     {
         System.out.println(name+"'s Roll No: "+rollNo);
     }
-
+  // where student object gets created
     public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
+        Student obj1=new Student("Rambo",21); // where the instance variables value gets set and what the value is 
         obj1.methodForDisplay();
     }
 }
@@ -36,7 +37,7 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
-
+- A static method does not need to use objects in relation to the class whereas public is in need of an object or it will compile an error. 
 ## Part 3 - Dogs
 
 * View the image below, and from the image, construct a Java file **Dog** that mirrors the diagrammed class and the 3 dog objects.
