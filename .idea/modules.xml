@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Dog/Dog.iml" filepath="$PROJECT_DIR$/Dog/Dog.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Java-Assignment-010.iml" filepath="$PROJECT_DIR$/.idea/Java-Assignment-010.iml" />
     </modules>
   </component>
