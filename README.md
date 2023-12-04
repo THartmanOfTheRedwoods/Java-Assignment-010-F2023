@@ -10,24 +10,25 @@
   6. All the instance methods for the class **Student**
 
 ```java
-class Student{
-    private String name;
-    private int rollNo;
+class Student{ // class name.
+    private String name; //instance variable: name, data type: String.
+    private int rollNo; // instance variable: rollNo, data type: int.
    
-    Student(String s, int r)
+    Student(String s, int r) // Constructor with parameters.
     {
-   	    name = s;
-   	    rollNo = r;
+   	    name = s; // Setting value for the instance variable 'name'.
+   	    rollNo = r; // Setting value for the instance variable 'rollNo'.
     }
    
-    void methodForDisplay()
+    void methodForDisplay() // Instance method for displaying student information.
     {
         System.out.println(name+"'s Roll No: "+rollNo);
     }
 
     public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
-        obj1.methodForDisplay();
+        Student obj1=new Student("Rambo",21); // Creating a Student object with name "Rambo" and roll number 21.
+      // Instance variables values are set here: name = "Rambo", rollNo = 21.
+        obj1.methodForDisplay(); // Calling the instance method to display the student information.
     }
 }
 ```
@@ -36,6 +37,11 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
+
+Answer: A static method means that it can be accessed without creating an object of the class. Public means it can only be accessed by objects. 
+A static method is a method that belongs to a class, but it does not belong to an instance of that class and this method can be called without the instance or object of that class.
+Every method in Java defaults to a non-static method without a static keyword preceding it. non-static methods can access any static method and static variable also, without using the object of the class.
+In the non-static method, the method can access static data members and static methods as well as non-static members and methods of another class or the same class, unlike the static method that can only access static data members and static methods of another class or the same class. 
 
 ## Part 3 - Dogs
 
