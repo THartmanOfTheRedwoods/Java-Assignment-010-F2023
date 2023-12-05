@@ -10,24 +10,24 @@
   6. All the instance methods for the class **Student**
 
 ```java
-class Student{
+class Student{ //class name
     private String name;
     private int rollNo;
    
     Student(String s, int r)
     {
-   	    name = s;
-   	    rollNo = r;
+   	    name = s; //instance variable string
+   	    rollNo = r; //instance variable int
     }
    
-    void methodForDisplay()
+    void methodForDisplay() //instance method for student
     {
-        System.out.println(name+"'s Roll No: "+rollNo);
+        System.out.println(name+"'s Roll No: "+rollNo); 
     }
 
     public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
-        obj1.methodForDisplay();
+        Student obj1=new Student("Rambo",21); //new student constructor
+        obj1.methodForDisplay(); 
     }
 }
 ```
