@@ -10,24 +10,25 @@
   6. All the instance methods for the class **Student**
 
 ```java
-class Student{
-    private String name;
-    private int rollNo;
+class Student{ // class name
+    private String name; // string variable
+    private int rollNo; // integer variable
    
-    Student(String s, int r)
+    Student(String s, int r)  // the constructor with the parameters s and r
     {
    	    name = s;
    	    rollNo = r;
     }
    
-    void methodForDisplay()
+    void methodForDisplay() // instance method for students information
     {
-        System.out.println(name+"'s Roll No: "+rollNo);
+        System.out.println(name+"'s Roll No: "+rollNo); //display students name and roll number
     }
 
     public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
-        obj1.methodForDisplay();
+      // students object being created
+        Student obj1=new Student("Rambo",21); // student object name obj1
+        obj1.methodForDisplay(); // calling method to display student info
     }
 }
 ```
@@ -36,6 +37,9 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
+Static is associated with the class itself and public is accessible from outside the class. Public can be called by objects
+of other classes and visible by other classes. Static can be called using the class name without creating an object of the class but public can
+only be accessed by objects.
 
 ## Part 3 - Dogs
 
