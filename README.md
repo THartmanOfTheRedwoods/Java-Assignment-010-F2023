@@ -11,22 +11,33 @@
 
 ```java
 class Student{
+    //Instance variables:
+    //1. Name of the student (String)
     private String name;
+    //2. roll number of the student (int)
     private int rollNo;
-   
+    
+   // Constructor: Initializes the instance variables with provided values
+  // Constructor Parameters:
+  //1. s- Name of the student(String)
+  //2. r- Roll number of the student(int)
     Student(String s, int r)
     {
+        //Setting the value of 'name' instance variable
    	    name = s;
+           //Setting the value of the 'rollNo' instance variable
    	    rollNo = r;
     }
-   
+   // Instance method: Display the student's name and roll number
     void methodForDisplay()
     {
         System.out.println(name+"'s Roll No: "+rollNo);
     }
 
     public static void main(String[] args) {
+        //Creating a Student object called 'obj1' with name "Rambo" and roll number 21
         Student obj1=new Student("Rambo",21);
+        // Calling the 'methodForDisplay' method on the 'obj1' object to display student information
         obj1.methodForDisplay();
     }
 }
