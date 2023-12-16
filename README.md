@@ -10,23 +10,25 @@
   6. All the instance methods for the class **Student**
 
 ```java
+//class name is student
 class Student{
-    private String name;
-    private int rollNo;
-   
+    //these are the instance variables
+    private String name; //string for storing the name of the student
+    private int rollNo; // integer to store the roll number of student
+   //this is the constructor
     Student(String s, int r)
     {
-   	    name = s;
-   	    rollNo = r;
+   	    name = s;// this is a constructor parameter
+   	    rollNo = r;// parameter for constructor 
     }
    
     void methodForDisplay()
     {
         System.out.println(name+"'s Roll No: "+rollNo);
     }
-
+//student object gets created in this main method 
     public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
+        Student obj1=new Student("Rambo",21); // here the instance value gets set with the name being Rambo and the value for the roll num being 21
         obj1.methodForDisplay();
     }
 }
@@ -36,7 +38,7 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
-
+Its like a door, if its public anyone can use it as long as they have the key ( a object in this case), and if its static its like a door that doesnt need a key 
 ## Part 3 - Dogs
 
 * View the image below, and from the image, construct a Java file **Dog** that mirrors the diagrammed class and the 3 dog objects.
