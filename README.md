@@ -1,7 +1,7 @@
 # Java-Assignment-010 - Classes and Objects
 
 ## Part 1 - Analyze
-* Add Comments to the Code below and label the following:
+* Add Comments to the Code below and label the following using comments:
   1. Class name
   2. All **instance variables/fields** and their data-types
   3. The **Constructor** and the **Constructor Parameters**
