@@ -10,24 +10,34 @@
   6. All the instance methods for the class **Student**
 
 ```java
+//1. Class name
 class Student{
-    private String name;
-    private int rollNo;
-   
-    Student(String s, int r)
+    //2. All instance variables/fields and their data-types
+    private String name; // Instance variable name of type String
+    private int rollNo; // Instance variable rollNo of type int
+   //3. The Constructor and the Constructor Parameters
+    Student(String s, int r) //3. Constructor with parameters s and r
     {
-   	    name = s;
-   	    rollNo = r;
+        name = s; // Assigning value of s to name
+        rollNo = r; // Assigning value of r to rollNo
     }
-   
-    void methodForDisplay()
+    { //5. Where the instance variables value gets set and what its values are.
+   	    name = s; // Setting the value of name to s
+   	    rollNo = r; // Setting the value of rollNo to r
+    }
+   //6. All the instance methods for the class Student
+    void methodForDisplay() // Instance method methodForDisplay
+    {
+        System.out.println(name+"'s Roll No: "+rollNo); // Printing name and rollNo
+    }
     {
         System.out.println(name+"'s Roll No: "+rollNo);
     }
 
     public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
-        obj1.methodForDisplay();
+        //4. Where a Student object gets created.
+        Student obj1=new Student("Rambo",21); // Creating object obj1 of class Student
+        obj1.methodForDisplay(); // Calling method methodForDisplay
     }
 }
 ```
@@ -36,7 +46,7 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
-
+ // Static methods are methods that belong to the class itself, and not to the object of the class. They can be called without creating an instance of the class. Public methods are methods that can be accessed by any other class. They are accessible from any other class, and can be called from any other class.
 ## Part 3 - Dogs
 
 * View the image below, and from the image, construct a Java file **Dog** that mirrors the diagrammed class and the 3 dog objects.
