@@ -10,23 +10,28 @@
   6. All the instance methods for the class **Student**
 
 ```java
-class Student{
-    private String name;
-    private int rollNo;
-   
+class Student{ //class name: Student
+    //Instance Variables/fields and data types
+    private String name;// String type variable to store students name
+    private int rollNo;// integer type variable to store student roll number
+  
+  //constructor and constructor parameters
+  //constructor with parameters to initialize name and rollNo
     Student(String s, int r)
     {
-   	    name = s;
-   	    rollNo = r;
+   	    name = s; //set name to vale of paremeter s
+   	    rollNo = r;// set rollNo to value of parameter r
     }
-   
+   //instance method for displaying students name and roll number
     void methodForDisplay()
-    {
+    { //display student name and roll number
         System.out.println(name+"'s Roll No: "+rollNo);
     }
-
+  //main method where student object is created
     public static void main(String[] args) {
+        //create new student object named obj1 with name rambo and roll number 21
         Student obj1=new Student("Rambo",21);
+        //call the methodForDisplay to display students name and roll number
         obj1.methodForDisplay();
     }
 }
@@ -36,7 +41,9 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
-
+ - Simply put, Static methods can be accessed without creating an object of the class where public methods can only be accessed by objects.
+ - Public methods define the behavior of the objects created from the class and can access instance variables and other instance methods of the class. 
+ - Static methods belong to the class itself rather than a specific instance. 
 ## Part 3 - Dogs
 
 * View the image below, and from the image, construct a Java file **Dog** that mirrors the diagrammed class and the 3 dog objects.
