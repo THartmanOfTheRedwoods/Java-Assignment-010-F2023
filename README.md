@@ -10,25 +10,36 @@
   6. All the instance methods for the class **Student**
 
 ```java
-class Student{
-    private String name;
-    private int rollNo;
-   
-    Student(String s, int r)
-    {
-   	    name = s;
-   	    rollNo = r;
-    }
-   
-    void methodForDisplay()
-    {
-        System.out.println(name+"'s Roll No: "+rollNo);
-    }
+// Class name
+class Student {
+  // Instance variables/datatype name/String and rollno/No
+  private String name;
+  private int rollNo;
 
-    public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
-        obj1.methodForDisplay();
-    }
+  // Constructor
+  // Constructor Parameters:
+  // - s: student's name data type: String
+  // - r: student's roll number data type: int
+  Student(String s, int r) {
+    // Setting instance variable name to the provided parameter s
+    name = s;
+    // Setting instance variable rollNo to the provided parameter r
+    rollNo = r;
+  }
+
+  // Instance method for displaying the student's details
+  void methodForDisplay() {
+    // Print the student's name and roll number
+    System.out.println(name + "'s Roll No: " + rollNo);
+  }
+
+  // Main method
+  public static void main(String[] args) {
+    // Creating a Student object with name "Rambo" and roll number 21
+    Student obj1 = new Student("Rambo", 21);
+    // Calling methodForDisplay() 
+    obj1.methodForDisplay();
+  }
 }
 ```
 
@@ -36,6 +47,11 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
+
+
+In a class, static methods are called on the class itself and are often used for tasks that involve the whole class or 
+use data that belongs to the class. Public methods are called on individual objects of the class and work with the object's 
+own data. Static methods are for class-wide operations, while public methods are for working with specific objects.
 
 ## Part 3 - Dogs
 
