@@ -10,25 +10,35 @@
   6. All the instance methods for the class **Student**
 
 ```java
+// Class name
 class Student{
-    private String name;
-    private int rollNo;
-   
-    Student(String s, int r)
-    {
-   	    name = s;
-   	    rollNo = r;
-    }
-   
-    void methodForDisplay()
-    {
-        System.out.println(name+"'s Roll No: "+rollNo);
-    }
+  // Instance variables/fields and their data-types
+  private String name;
+  private int rollNo;
 
-    public static void main(String[] args) {
-        Student obj1=new Student("Rambo",21);
-        obj1.methodForDisplay();
-    }
+  // Constructor and the Constructor Parameters
+  Student(String s, int r)
+  {
+    name = s; // Setting the value of the name instance variable
+    rollNo = r; // Setting the value of the rollNo instance variable
+  }
+
+  // Instance method for displaying student's name and roll number
+  void methodForDisplay()
+  {
+    System.out.println(name+"'s Roll No: "+rollNo); // Displaying the name and roll number
+  }
+
+  public static void main(String[] args) {
+    // Where a Student object gets created
+    Student obj1=new Student("Rambo",21); // Creating a Student object named obj1
+
+    // Where the instance variables value gets set and what its values are
+    // The values are set in the constructor when the Student object is created
+    // name = "Rambo" and rollNo = 21
+
+    obj1.methodForDisplay(); // Calling the methodForDisplay() method to display the student's details
+  }
 }
 ```
 
@@ -36,6 +46,10 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
+
+Static methods are associated with the class itself rather than with instances of the class. They can be called directly using the class name, without needing to create an object of the class. Static methods are commonly used for utility functions or operations that do not require access to instance variables.
+
+On the other hand, public methods are instance methods that are associated with individual objects or instances of the class. They can access instance variables and are typically called using an object of the class. Public methods define the behavior of objects and can modify the state of an object's instance variables.
 
 ## Part 3 - Dogs
 
