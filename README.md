@@ -36,6 +36,8 @@ class Student{
 
 * Read the W3Schools page on class methods: [W3Schools Java Class Methods](https://www.w3schools.com/java/java_class_methods.asp)
 * In your own words, write a few sentences below explaining the difference between static and public methods in relation to a class.
+* * public and static methods are similar but your invocation for them differ. With a static method you can call it anytime within that class to use it. As opposed to public methods where you must first create and object and then invoke it with dot notation( . )
+* * depending on your use a static or public method will be more efficient than the other. 
 
 ## Part 3 - Dogs
 
